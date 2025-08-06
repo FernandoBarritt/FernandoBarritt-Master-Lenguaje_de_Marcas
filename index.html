@@ -6,32 +6,33 @@
     <meta name = "description" content = "Portafolio personal de Fernando Barritt Haines, estudiante de ASIR y Máster en Ciberseguridad en ThePower. Página web elaborada como primer proyecto del Máster en Ciberseguridad">
     <meta name = "robots" content = "noindex" >
     <meta name = "keywords" content = "Fernando Barritt Haines, portafolio personal, estudiante, ASIR, ThePower">
-    <link rel = "stylesheet" href = "style2.css">
+    <link rel = "stylesheet" href = "style3.css">
     <link rel = "icon" href = "Img/orlarus_orla_favicon.jpg" type = "image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
     <title>Portafolio personal Fernando Barritt Haines</title>
-    <meta name = "author" value = "Fernando Barritt Haines">
+    <meta name = "author" content = "Fernando Barritt Haines">
 </head>
 <body>
     <header class = "header"> 
         <h1>Fernando Barritt Haines</h1>
-        <nav>
-            <ul>
-                <li><a href="#Inicio">Inicio</a></li>
-                <li><a href="#Sobre-mí">Sobre Mí</a></li>
-                <li><a href="#Mis-estudios">Mis Estudios</a></li>
-                <li><a href="#Mis-certificaciones">Mis Certificaciones</a></li>
-                <li><a href="#Mi-experiencia-laboral">Mi Experiencia Laboral</a></li>
-                <li><a href="#Mis-aspiraciones">Mis Aspiraciones</a></li>
-                <li><a href="#Contacto">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
+    <nav>
+        <ul>
+            <li><a href="#Inicio">Inicio</a></li>
+            <li><a href="#Sobre-mí">Sobre Mí</a></li>
+            <li><a href="#Mis-estudios">Mis Estudios</a></li>
+            <li><a href="#Mis-certificaciones">Mis Certificaciones</a></li>
+            <li><a href="#Mi-experiencia-laboral">Mi Experiencia Laboral</a></li>
+            <li><a href="#Mis-aspiraciones">Mis Aspiraciones</a></li>
+            <li><a href="#Contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
     <section id = "Inicio">
         <h2>Inicio</h2>
           <div class = "contenedor_inicio">
             <div class = "contenedor_imagen_fernando">
-              <img class = "imagen_fernando" src = "./Img/orlarus_orla.jpg" alt = "Fotografía de Fernando Barritt Haines" width = "250" height = "370">
+              <img class = "imagen_fernando" src = "./Img/orlarus_orla.jpg" alt = "Fotografía de Fernando Barritt Haines">
                 <div class = "overlay"> 
                   <div class = "text_fernando">Fernando Barritt Haines</div>
                 </div>
@@ -115,7 +116,6 @@
     <section id = "Mi-experiencia-laboral">
         <h2>Mi Experiencia Laboral</h2>
         <p>Con 23 años todavía no he tenido la oportunidad de trabajar en un sector profesional estable, pues hasta ahora sólo me he dedicado al estudio, con algunos trabajos esporádicos para financiar mi educación; </p>
-          </style>
           
           <table>
             <tr>
@@ -158,15 +158,29 @@
         <p>EL objetivo es crear una base sólida de los fundamentos de las tecnologías de la información con el Grado Superior y, a partir de ahí, comenzar a construir conocimientos nuevos y más intrínsecos,. ya sea a través de certificaciones o experiencia laboral, el máster en cibrseguridad siendo el primer paso hacia un sector más específico. </p>
     </section>
 
-    <section id = Contacto>
-      <h2>Contacto</h2>
-      <ul>
-        <li>Correo electrónico: barrittfernando@gmial.com</li>
-        <li><a href = "https://www.linkedin.com/in/fernando-barritt-haines-ab8499183/">Linkedin</a></li>
-        <li><a href = "https://www.instagram.com/fernanbh/">Instagram</a></li>
-      </ul>
-    </section>
-    </section>
+<section id="Contacto">
+  <h2>Contacto</h2>
+  
+  <form>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <ul>
+    <li>Correo electrónico: fernandobarrittcontact@gmail.com</li>
+    <li><a href="https://www.linkedin.com/in/fernando-barritt-haines-ab8499183/">LinkedIn</a></li>
+    <li><a href="https://www.instagram.com/fernanbh/">Instagram</a></li>
+  </ul>
+</section>
+
 
 </body>
-</html>
+</html> 

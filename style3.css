@@ -1,0 +1,574 @@
+/*
+  PORTAFOLIO PERSONAL - FERNANDO BARRITT HAINES
+  Hoja de Estilo Principal
+
+  ÍNDICE:
+  1. CONFIGURACIÓN GLOBAL Y VARIABLES
+     - :root (Variables de color, tipografía, etc.)
+     - Reset y estilos base
+     - Estilos generales de tipografía
+     - Clases de utilidad
+  
+  2. ESTRUCTURA Y COMPONENTES PRINCIPALES
+     - Header y Navegación
+     - Secciones
+     - Botones
+     - Formularios
+     - Tablas
+
+  3. ESTILOS POR SECCIÓN ID
+     - #Inicio
+     - #Sobre-mí
+     - #Mis-estudios
+     - #Mis-certificaciones
+     - #Contacto
+
+  4. MEDIA QUERIES (DISEÑO ADAPTATIVO)
+     - Estilos para Tablets (hasta 1024px)
+     - Estilos para Móviles (hasta 768px)
+*/
+
+
+/* 1. CONFIGURACIÓN GLOBAL Y VARIABLES      */
+
+
+:root {
+  /* Paleta de Colores (Más fácil de acceder) */
+  --color-primario: #313966;
+  --color-secundario: #7c8be4;
+  --color-fondo: #f4f7f8; 
+  --color-superficie: #ffffff; /* Blanco para tarjetas y elementos elevados */
+  --color-texto: #2c3e50; /* Un gris oscuro para el texto, más suave que el negro puro */
+  --color-texto-claro: #ffffff;
+
+  /* Tipografía */
+  --fuente-principal: 'Poppins', sans-serif;
+  --tamano-base: 16px;
+  --line-height-base: 1.7;
+
+  /* Layout y Espaciado */
+  --ancho-maximo: 1200px; /* Ancho máximo del contenido central */
+  --radio-borde: 12px; /* Bordes redondeados para tarjetas y contenedores */
+  --sombra-suave: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --transicion-rapida: all 0.3s ease;
+}
+
+/* -- Reset y Estilos Base -- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--tamano-base);
+}
+
+body {
+  font-family: var(--fuente-principal);
+  line-height: var(--line-height-base);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+/* -- Estilos Generales de Tipografía -- */
+h1, h2 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Tamaño de fuente adaptativo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  color: var(--color-fondo)
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  color: var(--color-primario)
+}
+
+/* Línea decorativa debajo de los títulos h2 */
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-secundario);
+  border-radius: 2px;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-secundario);
+  text-decoration: none;
+  transition: var(--transicion-rapida);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style-position: inside;
+  padding-left: 1rem;
+}
+
+
+/* 2. ESTRUCTURA Y COMPONENTES PRINCIPALES  */
+
+
+/* -- Header y Navegación -- */
+.header {
+  position: relative; /* Necesario para el overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 85vh; /* Ocupa casi toda la pantalla inicial */
+  padding: 2rem;
+  color: var(--color-texto-claro);
+  
+ 
+  background-image: url(./Img/me\ at\ kvalvika\ beach.JPG);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efecto parallax */
+}
+
+/* Overlay oscuro para asegurar la legibilidad del texto */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Posiciona el contenido del header por encima del overlay */
+.header h1, .header nav {
+  position: relative;
+  z-index: 2;
+}
+
+.header h1 {
+  margin-bottom: 2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  background-color: rgba(44, 62, 80, 0.7); /* Fondo semi-transparente */
+  padding: 0.75rem 1.5rem;
+
+  backdrop-filter: blur(5px); /* Efecto de desenfoque para navegadores modernos */
+}
+
+nav ul li a {
+  color: var(--color-texto-claro);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: var(--transicion-rapida);
+}
+
+nav ul li a:hover, nav ul li a:focus {
+  background-color: var(--color-secundario);
+  color: var(--color-texto-claro);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+/* -- Secciones -- */
+section {
+  padding: 5rem 1rem;
+  margin: 0 auto;
+  max-width: var(--ancho-maximo);
+}
+
+/* -- Botones -- */
+button[type="submit"] {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-family: var(--fuente-principal);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-texto-claro);
+  background-color: var(--color-primario);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transicion-rapida);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-secundario);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* -- Formularios -- */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 2rem auto 0;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radio-borde);
+  font-family: var(--fuente-principal);
+  font-size: 1rem;
+  background-color: var(--color-fondo);
+  transition: var(--transicion-rapida);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(49, 57, 102, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* -- Tablas -- */
+/* Contenedor para hacer la tabla responsive */
+.tabla-contenedor {
+  overflow-x: auto; /* Permite scroll horizontal en móviles */
+  margin: 2rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  box-shadow: var(--sombra-suave);
+  background-color: var(--color-superficie);
+}
+
+th, td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  font-weight: 600;
+}
+
+/* Filas alternas para mejor legibilidad */
+tr:nth-child(even) {
+  background-color: var(--color-fondo);
+}
+
+tr:hover {
+    background-color: rgba(124, 139, 228, 0.1);
+}
+
+
+/*---------------------------------------------------------3. ESTILOS POR SECCIÓN ID----------------------------------------------*/
+
+
+/* -- Sección #Inicio -- */
+.contenedor_inicio {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.texto_inicio {
+  flex: 1;
+}
+
+.lista_inicio ul {
+  list-style: '📢 '; /* Emoji como viñeta */
+  padding-left: 0.5rem;
+}
+
+.lista_inicio ul li {
+  margin-bottom: 0.5rem;
+}
+
+.contenedor_imagen_fernando {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(200px, 30vw, 300px); /* Tamaño adaptativo */
+  height: clamp(200px, 30vw, 300px);
+}
+
+.imagen_fernando {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  border-radius: 50%;
+  box-shadow: var(--sombra-suave);
+  object-position: center 10%; /* que se vea mas la cara en la foto de la orla */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--color-texto-claro);
+  background: rgba(49, 57, 102, 0.7);
+  border-radius: 50%;
+  opacity: 0;
+  transition: var(--transicion-rapida);
+}
+
+.contenedor_imagen_fernando:hover .overlay {
+  opacity: 1;
+}
+
+/* -- Sección #Sobre-mí -- */
+.contenedor_sobre_mi {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.texto_sobre_mi {
+  flex: 3; /* Ocupa 3 partes del espacio */
+  text-align: justify;
+}
+
+.contenedor_imagen_sobre_mi {
+  flex: 2; /* Ocupa 2 partes */
+  align-self: center; /* Centra la imagen verticalmente en el contenedor flex */
+}
+
+.imagen_sobre_mi {
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+}
+
+/* -- Sección #Mis-estudios -- */
+.grid-estudios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.grid-estudios li {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-superficie);
+  padding: 1.5rem;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  text-align: center;
+  transition: var(--transicion-rapida);
+}
+
+.grid-estudios li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.grid-estudios p {
+  flex-grow: 1; /* Hace que el texto ocupe el espacio disponible, alineando las imágenes */
+}
+
+.grid-estudios img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain; /* Ajusta la imagen sin recortar */
+  margin: 1.5rem auto 0;
+}
+
+/* -- Sección #Mis-certificaciones -- */
+#Mis-certificaciones ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+#Mis-certificaciones li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--color-superficie);
+  padding: 1rem;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+}
+
+#Mis-certificaciones img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* -- Sección #Contacto -- */
+#Contacto ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ======================================== */
+/* 4. MEDIA QUERIES (DISEÑO ADAPTATIVO)     */
+/* ======================================== */
+
+/* -- Estilos para Tablets (hasta 1024px) -- */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  .contenedor_inicio,
+  .contenedor_sobre_mi {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contenedor_imagen_fernando {
+    margin-bottom: 2rem;
+  }
+  
+  .contenedor_sobre_mi .texto_sobre_mi {
+    text-align: left; /* Mantenemos justificado en tablet */
+  }
+}
+
+/* -- Estilos para Móviles (hasta 768px) -- */
+@media (max-width: 768px) {
+  /* Hacemos la navegación vertical */
+  nav ul {
+    flex-direction: column;
+    align-items: stretch; /* Ocupa todo el ancho */
+    background-color: rgba(44, 62, 80, 0.9);
+    padding: 1rem;
+  }
+
+  nav ul li a {
+    display: block; /* Para que el fondo ocupe todo el espacio */
+    text-align: center;
+  }
+
+  /* Ajustes en secciones para móvil */
+  section {
+    padding: 3rem 1rem;
+  }
+  
+  .texto_sobre_mi {
+    text-align: left; /* En móvil, justificado puede ser difícil de leer */
+  }
+
+  /* Ajustamos la tabla de experiencia */
+  th {
+    display: none; /* Ocultamos los encabezados de la tabla */
+  }
+
+  td {
+    display: grid;
+    grid-template-columns: 120px 1fr; /* Columna para la etiqueta y otra para el dato */
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-bottom: none;
+  }
+  
+  td:not(:last-child) {
+     border-bottom: 2px solid var(--color-fondo);
+  }
+  
+  tr {
+     border: 1px solid #ccc;
+     border-radius: var(--radio-borde);
+     display: block;
+     margin-bottom: 1rem;
+  }
+
+  /* Añadimos la etiqueta del encabezado antes del dato */
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--color-primario);
+  }
+  
+  /* Tendrás que añadir el atributo data-label en tu HTML así: */
+  /* <td data-label="Puesto">Camarero</td> */
+  /* <td data-label="Año(s)">2024</td> */
+  /* etc. */
+
+  #Mis-certificaciones li {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #Contacto ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
