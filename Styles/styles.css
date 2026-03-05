@@ -1,0 +1,21 @@
+/* Reset básico de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Variables CSS */
+:root {
+    --color-primario: rgb(49, 57, 102);
+    --color-secundario: rgb(154, 169, 192);
+    --color-fondo:  rgb(228, 232, 252);
+    --fuente-principal: 'Poppins', sans-serif;
+}
+
+/* Estilos base */
+body {
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+    color: var(--color-primario);
+} 

@@ -555,11 +555,6 @@ tr:hover {
     font-weight: bold;
     color: var(--color-primario);
   }
-  
-  /* Tendrás que añadir el atributo data-label en tu HTML así: */
-  /* <td data-label="Puesto">Camarero</td> */
-  /* <td data-label="Año(s)">2024</td> */
-  /* etc. */
 
   #Mis-certificaciones li {
     flex-direction: column;
